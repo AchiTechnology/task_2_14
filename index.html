@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Demo1- hbulider</title>
+		<!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
+	
+	</head>
+	<body>
+		<h3>污染城市列表</h3>
+		<ul id="aqi-list">
+			
+			
+			
+		</ul>
+		
+		<script type="text/javascript">
+			var aqiData=[
+				["北京",90],
+				["上海",50],
+				["福州",10],
+				["广州",50],
+				["成都",90],
+				["西安",100],
+				["长沙",80],	
+				["深圳",65]
+			];
+			
+			
+			
+			
+			(function(){
+				/*
+				 在注释下方编写代码，遍历读取aqiData 中各个城市的数据，
+				 将空气质量指数大于60 的城市显示到aqi-list的列表中 
+				*/
+				
+				//对数组进行排序。
+				var aqisort=aqiData.sort(function(a,b){
+					return b[1]-a[1];
+				});
+				
+				//获取ul id为aqi-list
+				var aqilist=document.getElementById('aqi-list');
+				for(var i=0;i<aqisort.length;i++){
+					//选取大于60的空气质量
+					if(aqisort[i][1]>60){
+						aqilist.innerHTML+= '<li>第' + (i+1) + '名：' + aqisort[i][0] + '(样例) , ' + aqisort[i][1] + '</li>';
+						//使用+= 为输出数据，否则只能输出最后一个数据。
+						
+					}
+				}
+				
+				
+				
+				
+			})();
+			
+			
+		</script>
+		
+		
+	</body>
+</html>
